@@ -26,5 +26,4 @@ window.addEventListener("load", function() {
             contador.innerHTML = caracteres - longitud;
         }
     });
-  
 });
