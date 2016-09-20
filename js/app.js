@@ -10,6 +10,8 @@ window.addEventListener("load", function() {
         textArea.value = "";
         contador.innerHTML=140;
         boton.disabled=true;
+        contador.classList.remove("color-120");
+        contador.classList.remove("color-130");
     });
     function agregarMensaje(texto) {
         var mensaje = document.createElement("div");
@@ -24,6 +26,16 @@ window.addEventListener("load", function() {
            contador.innerHTML = caracteres - longitud;
         } else {
             contador.innerHTML = caracteres - longitud;
+        }
+        if(longitud > caracteres) {
+            boton.disabled = true;
+        }
+        if(longitud > 120) {
+            contador.classList.add("color-120");
+        }
+        if(longitud > 130) {
+            contador.classList.add("color-130");
+            
         }
     });
 });
