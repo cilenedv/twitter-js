@@ -1,10 +1,10 @@
 window.addEventListener("load", function() {
     var boton = document.getElementById("boton");
     var textArea = document.getElementById("texto");
-    textArea.addEventListener('keyup', autosize);
+    textArea.addEventListener('keydown', autosize);
     var contador=document.getElementById("contador");
     var caracteres = contador.innerHTML=140;
-    boton.addEventListener("click", function(e){
+    boton.addEventListener("click", function(e) {
         e.preventDefault();
         var texto = textArea.value;
         agregarMensaje(texto);
@@ -26,14 +26,14 @@ window.addEventListener("load", function() {
         setTimeout(function(){
             el.style.cssText = 'height:auto; padding:0';
             el.style.cssText = 'height:' + el.scrollHeight + 'px';
-        },0);
+            },0);
     }
-    function resize(){
+    function resize() {
        textArea.style.cssText = "height: auto";
    }
-    texto.addEventListener("keyup", function() {
+    texto.addEventListener("keydown", function() {
         boton.disabled = false;
-        var longitud = textArea.value.length;
+        var longitud = textArea.value.length+1;
         if(longitud <= caracteres) {
            contador.innerHTML = caracteres - longitud;
         } else {
