@@ -14,6 +14,7 @@ window.addEventListener("load", function() {
         contador.classList.remove("color-120");
         contador.classList.remove("color-130");
     	resize();
+         mostrarHora();
     });
     function agregarMensaje(texto) {
         var mensaje = document.createElement("div");
@@ -30,6 +31,20 @@ window.addEventListener("load", function() {
     }
     function resize() {
        textArea.style.cssText = "height: auto";
+   }
+   function mostrarHora() {
+       var fecha = new Date();
+       var hora = fecha.getHours();
+       var minuto = fecha.getMinutes();
+           if(minuto < 10) {
+               minuto = "0" + minuto;
+           }
+       var horaImprimible = hora + " : " + minuto;
+
+       var horario = document.createElement("span");
+       horario.innerText = horaImprimible;
+       var contenedor = document.getElementById("contenedor");
+       contenedor.insertBefore(horario, contenedor.childNodes[1]);
    }
     texto.addEventListener("keydown", function() {
         boton.disabled = false;
