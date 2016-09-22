@@ -40,7 +40,6 @@ window.addEventListener("load", function() {
                minuto = "0" + minuto;
            }
        var horaImprimible = hora + " : " + minuto;
-
        var horario = document.createElement("span");
        horario.innerText = horaImprimible;
        var contenedor = document.getElementById("contenedor");
